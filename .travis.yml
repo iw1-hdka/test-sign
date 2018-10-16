@@ -1,7 +1,11 @@
 language: php
-rvm:
-- 7.0
 
-language: php
+php:
+  - 5.5
+  - 7.0
 
-os: osx
+matrix:
+  allow_failures:
+    - php: 7.0
+
+script: ls
