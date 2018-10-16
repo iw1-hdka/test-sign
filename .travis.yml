@@ -1,0 +1,7 @@
+language: php
+rvm:
+- 7.0
+
+language: php
+
+os: osx
