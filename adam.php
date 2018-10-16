@@ -1,2 +1,4 @@
 <?php
-echo "Test";
+echo "Test de qualité";
+
+?>
