@@ -1,0 +1,46 @@
+version: "3.1"
+services:
+
+    mariadb:
+      image: mariadb:10.2
+      container_name: livre-mariadb
+      working_dir: /application
+      volumes:
+        - .:/application
+        - ./securiser_une_application.sql:/docker-entrypoint-initdb.d/init.sql
+      environment:
+        - MYSQL_ROOT_PASSWORD=root
+      ports:
+        - "3306:3306"
+
+    webserver:
+      image: nginx:alpine
+      container_name: livre-webserver
+      working_dir: /application
+      volumes:
+        - .:/application
+        - ./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      ports:
+        - "80:80"
+      depends_on:
+        - php-fpm
+
+    php-fpm:
+      build: phpdocker/php-fpm
+      container_name: livre-php-fpm
+      working_dir: /application
+      volumes:
+        - .:/application
+        - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.0/fpm/conf.d/99-overrides.ini
+      depends_on:
+        - mariadb
+
+    phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      container_name: livre-phpmyadmin
+      depends_on:
+        - mariadb
+      links:
+        - mariadb:db
+      ports:
+        - "81:80"
