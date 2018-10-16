@@ -8,4 +8,4 @@ matrix:
   allow_failures:
     - php: 7.0
 
-script: ls
+script: php-cs-fixer --dry-run
