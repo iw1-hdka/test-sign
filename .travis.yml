@@ -9,7 +9,6 @@ matrix:
     - php: 7.0
     
 before_install:
-  - composer global require friendsofphp/php-cs-fixer
-  - export PATH="$PATH:$HOME/.composer/vendor/bin"
+  - composer install
 
-script: php-cs-fixer --dry-run
+script: ./vendor/bin/php-cs-fixer --dry-run
