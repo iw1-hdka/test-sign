@@ -19,5 +19,7 @@ notifications:
     recipients:
       - driss.belaroussi.sio@gmail.com
       
-script: ls
+before_install:
+  - composer require friendsofphp/php-cs-fixer
 
+script: ./vendor/bin/php-cs-fixer fix . --dry-run
