@@ -8,7 +8,10 @@ matrix:
   allow_failures:
     - php: 7.0
     
-before_install:
-  - composer require friendsofphp/php-cs-fixer
+notifications:
+  email:
+    recipients:
+      - driss.belaroussi.sio@gmail.com
+      
+script: ls
 
-script: ./vendor/bin/php-cs-fixer fix . --dry-run
