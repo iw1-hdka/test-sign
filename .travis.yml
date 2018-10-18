@@ -9,6 +9,12 @@ matrix:
     - php: 7.0
     
 notifications:
+  slack: 
+    rooms:
+      - esgi-iw:3xesgTA7LDncYCqnA2EShdA5#git
+    on_success: always
+    on_failure: always
+    
   email:
     recipients:
       - driss.belaroussi.sio@gmail.com
