@@ -15,6 +15,9 @@ before_install:
 script: php-cs-fixer --dry-run
 
 notifications:
+  email:
+    recipients:
+      - driss.belaroussi.sio@gmail.com
   slack:
     on_success: always
     on_failure: always
