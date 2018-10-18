@@ -12,3 +12,5 @@ notifications:
   email:
     recipients:
       - driss.belaroussi.sio@gmail.com
+      
+script: ls
