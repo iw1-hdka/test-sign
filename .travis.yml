@@ -13,3 +13,8 @@ before_install:
   - export PATH="$PATH:$HOME/.composer/vendor/bin"
 
 script: php-cs-fixer --dry-run
+
+notifications:
+  slack:
+    on_success: always
+    on_failure: always
