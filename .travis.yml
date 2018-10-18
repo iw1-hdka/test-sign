@@ -15,6 +15,9 @@ before_install:
 script: php-cs-fixer --dry-run
 
 notifications:
-  slack:
+  slack: 
+    rooms:
+      - esgi-iw:3xesgTA7LDncYCqnA2EShdA5#git
     on_success: always
     on_failure: always
+    
