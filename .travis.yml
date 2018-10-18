@@ -9,6 +9,6 @@ matrix:
     - php: 7.0
     
 before_install:
-  - composer install
+  - composer require friendsofphp/php-cs-fixer
 
 script: ./vendor/bin/php-cs-fixer --dry-run
