@@ -1,0 +1,15 @@
+language: php
+
+php:
+  - 5.5
+  - 7.0
+
+matrix:
+  allow_failures:
+    - php: 7.0
+    
+before_install:
+  - composer global require friendsofphp/php-cs-fixer
+  - export PATH="$PATH:$HOME/.composer/vendor/bin"
+
+script: php-cs-fixer --dry-run
